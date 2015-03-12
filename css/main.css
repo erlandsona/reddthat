@@ -1,3 +1,7 @@
 ul.nav {
   display: inline;
 }
+
+h1.header {
+  float: left;
+}
