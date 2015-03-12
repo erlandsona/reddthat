@@ -1,1 +1,1 @@
-angular.module('tas', ['ngRoute']);
+angular.module('reddthat', ['ngRoute']);

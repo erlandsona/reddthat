@@ -1,34 +1,20 @@
 angular
-  .module('tas')
-  .config(tasConfig);
+  .module('reddthat')
+  .config(articlesConfig);
 
-function tasConfig($routeProvider) {
+function articlesConfig($routeProvider) {
   $routeProvider
-    .when('/tas', {
-      templateUrl: 'js/tas/table.html',
-      controller: 'TasController',
-      controllerAs: 'tas',
-      private: true
+    .when('/reddthat', {
+      templateUrl: 'js/articles/articles.html',
+      controller: 'ArticlesController',
+      controllerAs: 'articles'
     })
-    .when('/tas/new', {
-      templateUrl: 'js/tas/form.html',
-      controller: 'TasController',
-      controllerAs: 'tas',
-      private: true
-    })
-    .when('/tas/:uuid', {
-      templateUrl: 'js/tas/show.html',
+    .when('/reddthat/:uuid', {
+      templateUrl: 'js/articles/show.html',
       controller: 'ShowController',
-      controllerAs: 'show',
-      private: true
-    })
-    .when('/tas/:uuid/edit', {
-      templateUrl: 'js/tas/form.html',
-      controller: 'EditController',
-      controllerAs: 'tas',
-      private: true
+      controllerAs: 'article'
     })
     .otherwise({
-      redirectTo: '/tas'
+      redirectTo: '/reddthat'
     });
 }
