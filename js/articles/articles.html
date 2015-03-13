@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" ng-controller="ArticlesController as articles">
   <tbody>
     <tr ng-repeat="(id, article) in articles.data
       | filter: orderBy:['votes']">

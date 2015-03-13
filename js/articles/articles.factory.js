@@ -5,6 +5,11 @@ angular
 function articlesFactory($http, BASE_URL) {
   var articles = {};
 
+  articles.getAuthor = function () {
+    var fb = new Firebase(BASE_URL);
+    return fb.getAuth().password.email;
+  }
+
   articles.findOne = function (id, cb) {
     $http
       .get(BASE_URL + '/articles/' + id + '.json')
@@ -23,7 +28,7 @@ function articlesFactory($http, BASE_URL) {
 
   articles.create = function (data, cb) {
     $http
-      .post(BASE_URL + '/articles.json', data)
+      .post(BASE_URL + '/articles/.json', data)
       .success(function (res) {
         cb(res);
       });
@@ -31,12 +36,12 @@ function articlesFactory($http, BASE_URL) {
 
   articles.getVotes = function (id, cb) {
     var url = BASE_URL + '/articles/' + id + '/votes/.json';
-
-    .get(url)
-    .success(function(data) {
-      cb(data);
-    })
-  }
+    $http
+      .get(url)
+      .success(function(data) {
+        cb(data);
+      });
+  };
 
   articles.updateVotes = function (id, direction, cb) {
     var url = BASE_URL + '/articles/' + id + '/votes/.json';
@@ -50,7 +55,7 @@ function articlesFactory($http, BASE_URL) {
             cb(res);
           }
         });
-      };
+      });
   };
 
   articles.delete = function (id, cb) {

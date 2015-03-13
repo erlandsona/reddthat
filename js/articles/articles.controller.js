@@ -10,7 +10,11 @@ function ArticlesController($location, articlesFactory) {
   });
 
   vm.addArticles = function () {
-    articlesFactory.create(vm.newArticle, function (res) {
+    vm.newPost.author = articlesFactory.getAuthor();
+    vm.newPost.votes = 0;
+    vm.newPost.votedUsers = [];
+
+    articlesFactory.create(vm.newPost, function (res) {
       $location.path('/reddthat');
     });
   };
