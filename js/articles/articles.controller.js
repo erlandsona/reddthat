@@ -19,7 +19,7 @@ function ArticlesController($location, articlesFactory) {
     });
   };
 
-  vm.updateVotes = function (id) {
-    articleFactory.update(id, vm.data[id]);
+  vm.updateVotes = function (id, direction) {
+    articlesFactory.updateVotes(id, direction);
   };
 }

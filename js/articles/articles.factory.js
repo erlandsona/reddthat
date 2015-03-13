@@ -47,7 +47,6 @@ function articlesFactory($http, BASE_URL) {
     var url = BASE_URL + '/articles/' + id + '/votes/.json';
 
     articles.getVotes(id, function(data) {
-
       $http
         .put(url, data + direction)
         .success(function (res) {

@@ -36,41 +36,13 @@
 								</li>
 		          </div>
 		          <div class="loggedIn-container" ng-show="auth.isLoggedIn()">
-	            	<div class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</div>
+	            	<a href="/#/reddthat/modal" class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</a>
 		          </div>
 	          </ul>
           </div>
         </form>
       </div>
     </nav>
-
-    <div class="container modal-container" ng-controller="ArticlesController as articles">
-	    <div class="modal fade" id="modal-1" ng-submit="articles.addArticles()">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-	            <h1>New Post</h1>
-              <div class="form-group" name="reddthat.newPostForm">
-							  <label class="control-label">Article Title</label>
-							  <input class="form-control inputColor" id="articleTitle" ng-model="articles.newPost.title" required>
-							  <label class="control-label">Photo URL:</label>
-							  <input type="url" class="form-control inputColor" id="photoUrl" placeholder="Enter Url" ng-model="articles.newPost.photo">
-							  <label class="control-label">Article URL:</label>
-							  <input type="url" class="form-control inputColor" id="articleUrl" placeholder="Enter Url" ng-model="articles.newPost.link">
-							  <label class="control-label">Article Description</label>
-							  <input type="text" class="form-control inputColor" id="articleDescription" ng-model="articles.newPost.description" required>
-							</div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" ng-click="articles.addArticles()">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div ng-view></div>
 

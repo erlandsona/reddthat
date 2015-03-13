@@ -37,3 +37,11 @@ h1,h2,label
 div.row {
   margin-top: 10%;
 }
+
+table {
+  margin-top: 200px;
+}
+
+.articleImg {
+  width: 150px;
+}
