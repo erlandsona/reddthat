@@ -32,3 +32,8 @@ h1,h2,label
 	width: 250px;
 	height: 150px;
 }
+
+
+div.row {
+  margin-top: 10%;
+}

@@ -12,7 +12,7 @@ function articlesConfig($routeProvider) {
     .when('/reddthat/:uuid', {
       templateUrl: 'js/articles/show.html',
       controller: 'ShowController',
-      controllerAs: 'article'
+      controllerAs: 'show'
     })
     .otherwise({
       redirectTo: '/reddthat'
