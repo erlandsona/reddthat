@@ -52,23 +52,23 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
+	            <h1>New Post</h1>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-	            <h1>New Post</h1>
               <div class="form-group" name="reddthat.newPostForm">
 							  <label class="control-label">Article Title</label>
-							  <input class="form-control inputColor" id="articleTitle" ng-model="reddthat.newPost.title" required>
+							  <input class="form-control inputColor" id="articleTitle" placeholder="Title" ng-model="reddthat.newPost.title" required>
 							  <label class="control-label">Photo URL:</label>
 							  <input type="url" class="form-control inputColor" id="photoUrl" placeholder="Enter Url" ng-model="reddthat.newPost.photo">
 							  <label class="control-label">Article URL:</label>
 							  <input type="url" class="form-control inputColor" id="articleUrl" placeholder="Enter Url" ng-model="reddthat.newPost.link">
 							  <label class="control-label">Article Description</label>
-							  <input type="text" class="form-control inputColor" id="articleDescription" ng-model="reddthat.newPost.description" required>
+							  <input type="text" class="form-control inputColor" id="articleDescription" placeholder="Description" ng-model="reddthat.newPost.description" required>
 							</div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary npButton">Save changes</button>
             </div>
           </div>
         </div>

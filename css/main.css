@@ -20,7 +20,8 @@ h1.header {
 
 .npButton:hover
 {
-	color: #0085ff;
+	color: #286090;
+	font-weight: bold;
 	background: #fff;
 }
 
@@ -31,7 +32,7 @@ h1,h2,label
 
 .inputColor
 {
-	border: solid 1px #009aff;
+	border: solid 1px #286090;
 }
 
 .font
