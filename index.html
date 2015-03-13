@@ -15,34 +15,34 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-      <nav class="navbar navbar-default navbar-fixed-top" ng-controller="AuthController as auth">
-        <div class="container">
-          <img class="header logo1" src="images/logo.png">
-          <form class="navbar-form navbar-right" ng-submit="auth.login()" novalidate>
-	          <div class="form-group">
-		          <ul class="nav nav-pills">
-			          <div class="loggedOut-container" ng-hide="auth.isLoggedIn()">
-			            <li>
-			              <input class="bottones form-control" type="email" placeholder="Email" ng-model="auth.user.email" required>
-			            </li>
-			            <li>
-			              <input class="bottones form-control" type="password" placeholder="Password" ng-model="auth.user.password" required>
-			            </li>
-			            <li>
-			              <input type="submit" value="Login" class=" bottones active btn btn-success">
-			            </li>
-			            <li>
-			            	<input type="submit" value="Register" class=" bottones active btn btn-success" ng-click="auth.register()">
-									</li>
-			          </div>
-			          <div class="loggedIn-container" ng-show="auth.isLoggedIn()">
-		            	<button class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</button>
-			          </div>
-		          </ul>
-	          </div>
-          </form>
-        </div>
-      </nav>
+    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="AuthController as auth">
+      <div class="container">
+        <img class="header logo1" src="images/logo.png">
+        <form class="navbar-form navbar-right" ng-submit="auth.login()" novalidate>
+          <div class="form-group">
+	          <ul class="nav nav-pills">
+		          <div class="loggedOut-container" ng-hide="auth.isLoggedIn()">
+		            <li>
+		              <input class="bottones form-control" type="email" placeholder="Email" ng-model="auth.user.email" required>
+		            </li>
+		            <li>
+		              <input class="bottones form-control" type="password" placeholder="Password" ng-model="auth.user.password" required>
+		            </li>
+		            <li>
+		              <input type="submit" value="Login" class=" bottones active btn btn-success">
+		            </li>
+		            <li>
+		            	<input type="submit" value="Register" class=" bottones active btn btn-success" ng-click="auth.register()">
+								</li>
+		          </div>
+		          <div class="loggedIn-container" ng-show="auth.isLoggedIn()">
+	            	<button class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</button>
+		          </div>
+	          </ul>
+          </div>
+        </form>
+      </div>
+    </nav>
 
     <div class="container modal-container">
 	    <div class="modal fade" id="modal-1" ng-submit="reddthat.addNewPost()">
@@ -71,10 +71,8 @@
         </div>
       </div>
     </div>
-    
-      <div ng-view>
 
-      </div>
+    <div ng-view></div>
 
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -82,12 +80,10 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="js/main.module.js"></script>
-    <script src="js/auth/auth.config.js"></script>
     <script src="js/main.config.js"></script>
     <script src="js/main.constants.js"></script>
     <script src="js/auth/auth.factory.js"></script>
     <script src="js/auth/auth.controller.js"></script>
-		<script src="js/articles/articles.config.js"></script>
 		<script src="js/articles/articles.controller.js"></script>
 		<script src="js/articles/articles.factory.js"></script>
 		<script src="js/articles/show.controller.js"></script>

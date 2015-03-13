@@ -1,21 +1,22 @@
 <div class="row">
   <div class="col-md-6">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd>{{show.ta.name}}</dd>
-      <dt>Nick Name</dt>
-      <dd>{{show.ta.nickName}}</dd>
-      <dt>First Name</dt>
-      <dd>{{show.ta.firstName}}</dd>
-      <dt>Last Name</dt>
-      <dd>{{show.ta.lastName}}</dd>
-      <dt>Cohort</dt>
-      <dd>{{show.ta.cohort}}</dd>
-      <dt>Status</dt>
-      <dd>{{show.ta.current ? 'Current' : 'Not Current'}}</dd>
+      <dt>Author</dt>
+      <dd>{{show.article.author}}</dd>
+      <dt>Title</dt>
+      <dd>{{show.article.title}}</dd>
+      <dt>Link</dt>
+      <dd><a href="{{show.article.articleLink}}">{{show.article.articleLink}}</a></dd>
+      <dt>Message</dt>
+      <dd>{{show.article.message}}</dd>
+      <dt>Votes</dt>
+      <dd>{{show.article.votes}}</dd>
     </dl>
   </div>
-  <div class="col-md-6">
-    <img src="{{show.ta.imgUrl}}">
+  <div class="col-md-4">
+    <img src={{show.article.imageUrl}}>
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-success" href="/#/reddthat">Main</a>
   </div>
 </div>
