@@ -29,16 +29,28 @@ function articlesFactory($http, BASE_URL) {
       });
   };
 
-  articles.update = function (id, data, cb) {
-    var url = BASE_URL + '/articles/' + id + '.json';
+  articles.getVotes = function (id, cb) {
+    var url = BASE_URL + '/articles/' + id + '/votes/.json';
 
-    $http
-      .put(url, data)
-      .success(function (res) {
-        if (typeof cb === 'function') {
-          cb(res);
-        }
-      });
+    .get(url)
+    .success(function(data) {
+      cb(data);
+    })
+  }
+
+  articles.updateVotes = function (id, direction, cb) {
+    var url = BASE_URL + '/articles/' + id + '/votes/.json';
+
+    articles.getVotes(id, function(data) {
+
+      $http
+        .put(url, data + direction)
+        .success(function (res) {
+          if (typeof cb === 'function') {
+            cb(res);
+          }
+        });
+      };
   };
 
   articles.delete = function (id, cb) {

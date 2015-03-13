@@ -1,0 +1,17 @@
+<table class="table">
+  <tbody>
+    <tr ng-repeat="(id, article) in articles.data
+      | filter: orderBy:['votes']">
+      <td><img src="{{article.img}}" class="articleImg"></td>
+      <td>
+        <span>{{article.title}}<a href="/#/reddthat/articles/{{id}}"></span>
+      </td>
+      <td>{{article.author}}</td>
+      <td>
+        <button ng-click="article.checkVotes(id, 1)">UP</button>
+        <p>{{article.votes}}</p>
+        <button ng-click="article.checkVotes(id, -1)">DOWN</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
