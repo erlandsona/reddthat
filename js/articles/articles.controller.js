@@ -1,32 +1,21 @@
 angular
-  .module('tas')
-  .controller('TasController', TasController);
+  .module('reddthat')
+  .controller('ArticlesController', ArticlesController );
 
-function TasController($location, taFactory, COHORT_OPTIONS) {
+function ArticlesController($location, articlesFactory) {
   var vm = this;
 
-  vm.cohortOptions = COHORT_OPTIONS;
-
-  taFactory.findAll(function (tas) {
-    vm.data = tas;
+  articlesFactory.findAll(function (articles) {
+    vm.data = articles;
   });
 
-  vm.addOrEditTA = function () {
-    vm.newTA.name = 'Adam';
-    vm.newTA.nickName = vm.newTA.firstName[0].toUpperCase() + 'Adam';
-
-    taFactory.create(vm.newTA, function (res) {
-      $location.path('/tas');
+  vm.addArticles = function () {
+    articlesFactory.create(vm.newArticle, function (res) {
+      $location.path('/reddthat');
     });
   };
 
-  vm.removeTA = function (id) {
-    taFactory.delete(id, function () {
-      delete vm.data[id];
-    });
-  };
-
-  vm.updateTA = function (id) {
-    taFactory.update(id, vm.data[id]);
+  vm.updateVotes = function (id) {
+    articleFactory.update(id, vm.data[id]);
   };
 }

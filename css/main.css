@@ -10,7 +10,6 @@ h1.header {
 {
 	margin-right: 10px;
 	font-family: 'Titillium Web', sans-serif;
-
 }
 
 h1,h2,label
@@ -26,4 +25,10 @@ h1,h2,label
 .font
 {
 	font-size: 15px;
+}
+
+.logo1
+{
+	width: 250px;
+	height: 150px;
 }

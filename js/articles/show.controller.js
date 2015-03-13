@@ -1,12 +1,12 @@
 angular
-  .module('tas')
+  .module('reddthat')
   .controller('ShowController', ShowController);
 
-function ShowController($routeParams, taFactory) {
+function ShowController($routeParams, articlesFactory) {
   var vm = this,
       id = $routeParams.uuid;
 
-  taFactory.findOne(id, function (ta) {
-    vm.ta = ta;
+  articlesFactory.findOne(id, function (article) {
+    vm.article = article;
   });
 }

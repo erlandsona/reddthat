@@ -1,5 +1,5 @@
 angular
-  .module('tas')
+  .module('reddthat')
   .factory('authFactory', authFactory);
 
 function authFactory(BASE_URL) {
@@ -18,7 +18,7 @@ function authFactory(BASE_URL) {
 
     login: function (user, cb) {
       var fb = new Firebase(BASE_URL);
-
+	
       fb.authWithPassword(user, cb);
     },
 

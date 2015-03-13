@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US" ng-app="tas">
+<html lang="en-US" ng-app="reddthat">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,107 +18,74 @@
 
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-          <h1 class="header">Reddthat</h1>
-          <form class="navbar-form navbar-right">
+          <img class="header logo1" src="images/logo.png">
+          <form class="navbar-form navbar-right" ng-submit="auth.login()">
 	          <div class="form-group">
 		          <ul class="nav nav-pills">
-		            <li>
-		              <input class="bottones form-control" type="email" placeholder="Email" required>
-		            </li>
-		            <li>
-		              <input class="bottones form-control" type="password" placeholder="Password" required>
-		            </li>
-		            <li>
-		              <button class=" bottones active btn btn-success" href="#">Login</button>
-		            </li>
-		            <li>
-		            	<button class=" bottones active btn btn-success" href="#">Login</button>
-								</li>
+			          <div class="loggedOut-container" ng-hide="auth.isLoggedIn()">
+			            <li>
+			              <input class="bottones form-control" type="email" placeholder="Email" ng-model="auth.user.email" required>
+			            </li>
+			            <li>
+			              <input class="bottones form-control" type="password" placeholder="Password" ng-model="auth.user.password" required>
+			            </li>
+			            <li>
+			              <button class=" bottones active btn btn-success" href="#">Login</button>
+			            </li>
+			            <li>
+			            	<button class=" bottones active btn btn-success" ng-click="auth.register()" href="#">Register</button>
+									</li>
+			          </div>
+			          <div class="loggedIn-container" ng-show="reddthat.isLoggedIn()">
 		            	<button class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</button>
+			          </div>
 		          </ul>
 	          </div>
           </form>
         </div>
       </nav>
 
-    <div class="container">
-	    <div class="modal fade" id="modal-1">
+    <div class="container modal-container">
+	    <div class="modal fade" id="modal-1" ng-submit="reddthat.addNewPost()">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
 	            <h1>New Post</h1>
-              <div class="form-group" ng-class="{'has-error': tas.newTAForm.$dirty}">
+              <div class="form-group" name="reddthat.newPostForm">
 							  <label class="control-label">Article Title</label>
-							  <input class="form-control inputColor" id="articleTitle" required>
+							  <input class="form-control inputColor" id="articleTitle" ng-model="reddthat.newPost.title" required>
 							  <label class="control-label">Photo URL:</label>
-							  <input type="url" class="form-control inputColor" id="photoUrl" placeholder="Enter Url">
+							  <input type="url" class="form-control inputColor" id="photoUrl" placeholder="Enter Url" ng-model="reddthat.newPost.photo">
 							  <label class="control-label">Article URL:</label>
-							  <input type="url" class="form-control inputColor" id="articleUrl" placeholder="Enter Url">
+							  <input type="url" class="form-control inputColor" id="articleUrl" placeholder="Enter Url" ng-model="reddthat.newPost.link">
 							  <label class="control-label">Article Description</label>
-							  <input type="text" class="form-control inputColor" id="articleDescription" required>
+							  <input type="text" class="form-control inputColor" id="articleDescription" ng-model="reddthat.newPost.description" required>
 							</div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
 	
-
-      <div ng-view></div>
-<!--
-
-      <article>
-        <img>
-        <strong>Author</strong>
-        <button>Up Vote</button>
-        <p>{# of votes}</p>
-        <button>Down Vote</button>
-      </article>
--->
-
-
-<!--
-      <div class="modal fade" id="newPost">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
+			
+      <div ng-view>
+	      
       </div>
--->
 
-<!--
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
--->
-		   
+     		   
 
 
-    </div>
+    
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
-<!--
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="js/main.module.js"></script>
@@ -128,12 +95,10 @@
     <script src="js/main.filters.js"></script>
     <script src="js/auth/auth.factory.js"></script>
     <script src="js/auth/auth.controller.js"></script>
-    <script src="js/auth/logout.controller.js"></script>
-    <script src="js/tas/ta.factory.js"></script>
-    <script src="js/tas/edit.controller.js"></script>
-    <script src="js/tas/show.controller.js"></script>
-    <script src="js/tas/ta.controller.js"></script>
--->
+		<script src="js/articles/articles.config.js"></script>
+		<script src="js/articles/articles.controller.js"></script>
+		<script src="js/articles/articles.factory.js"></script>
+		<script src="js/articles/show.controller.js"></script>
 
   </body>
 </html>

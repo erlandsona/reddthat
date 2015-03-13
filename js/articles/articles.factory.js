@@ -1,36 +1,36 @@
 angular
-  .module('tas')
-  .factory('taFactory', taFactory);
+  .module('reddthat')
+  .factory('articlesFactory', articlesFactory);
 
-function taFactory($http, BASE_URL) {
-  var tas = {};
+function articlesFactory($http, BASE_URL) {
+  var articles = {};
 
-  tas.findOne = function (id, cb) {
+  articles.findOne = function (id, cb) {
     $http
-      .get(BASE_URL + '/tas/' + id + '.json')
+      .get(BASE_URL + '/articles/' + id + '.json')
       .success(function (data) {
         cb(data);
       });
   };
 
-  tas.findAll = function (cb) {
+  articles.findAll = function (cb) {
     $http
-      .get(BASE_URL + '/tas.json')
+      .get(BASE_URL + '/articles.json')
       .success(function (data) {
         cb(data);
       });
   };
 
-  tas.create = function (data, cb) {
+  articles.create = function (data, cb) {
     $http
-      .post(BASE_URL + '/tas.json', data)
+      .post(BASE_URL + '/articles.json', data)
       .success(function (res) {
         cb(res);
       });
   };
 
-  tas.update = function (id, data, cb) {
-    var url = BASE_URL + '/tas/' + id + '.json';
+  articles.update = function (id, data, cb) {
+    var url = BASE_URL + '/articles/' + id + '.json';
 
     $http
       .put(url, data)
@@ -41,8 +41,8 @@ function taFactory($http, BASE_URL) {
       });
   };
 
-  tas.delete = function (id, cb) {
-    var url = BASE_URL + '/tas/' + id + '.json';
+  articles.delete = function (id, cb) {
+    var url = BASE_URL + '/articles/' + id + '.json';
 
     $http
       .delete(url)
@@ -51,5 +51,5 @@ function taFactory($http, BASE_URL) {
       });
   };
 
-  return tas;
+  return articles;
 }

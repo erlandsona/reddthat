@@ -1,5 +1,5 @@
 angular
-  .module('tas')
+  .module('reddthat')
   .filter('objToArr', function () {
     return function (obj) {
       if (obj) {
