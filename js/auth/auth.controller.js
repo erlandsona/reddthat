@@ -34,6 +34,10 @@ function AuthController($rootScope, $scope, $location, authFactory, BASE_URL) {
     });
   };
 
+  vm.isLoggedIn = function() {
+    return authFactory.isLoggedIn();
+  }
+
   vm.forgotPassword = function () {
     authFactory.forgotPassword(vm.user, function (err) {
       if (err) {

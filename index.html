@@ -7,7 +7,6 @@
     <title>My Title</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,300' rel='stylesheet' type='text/css'
   </head>
 	<body>
@@ -16,10 +15,10 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-default navbar-fixed-top" ng-controller="AuthController as auth">
         <div class="container">
           <img class="header logo1" src="images/logo.png">
-          <form class="navbar-form navbar-right" ng-submit="auth.login()">
+          <form class="navbar-form navbar-right" ng-submit="auth.login()" novalidate>
 	          <div class="form-group">
 		          <ul class="nav nav-pills">
 			          <div class="loggedOut-container" ng-hide="auth.isLoggedIn()">
@@ -30,13 +29,13 @@
 			              <input class="bottones form-control" type="password" placeholder="Password" ng-model="auth.user.password" required>
 			            </li>
 			            <li>
-			              <button class=" bottones active btn btn-success" href="#">Login</button>
+			              <input type="submit" value="Login" class=" bottones active btn btn-success">
 			            </li>
 			            <li>
-			            	<button class=" bottones active btn btn-success" ng-click="auth.register()" href="#">Register</button>
+			            	<input type="submit" value="Register" class=" bottones active btn btn-success" ng-click="auth.register()">
 									</li>
 			          </div>
-			          <div class="loggedIn-container" ng-show="reddthat.isLoggedIn()">
+			          <div class="loggedIn-container" ng-show="auth.isLoggedIn()">
 		            	<button class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</button>
 			          </div>
 		          </ul>
@@ -73,16 +72,10 @@
       </div>
     </div>
 
-	
-			
       <div ng-view>
-	      
+
       </div>
 
-     		   
-
-
-    
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
@@ -92,7 +85,6 @@
     <script src="js/auth/auth.config.js"></script>
     <script src="js/main.config.js"></script>
     <script src="js/main.constants.js"></script>
-    <script src="js/main.filters.js"></script>
     <script src="js/auth/auth.factory.js"></script>
     <script src="js/auth/auth.controller.js"></script>
 		<script src="js/articles/articles.config.js"></script>
