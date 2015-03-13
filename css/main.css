@@ -5,3 +5,25 @@ ul.nav {
 h1.header {
   float: left;
 }
+
+.bottones
+{
+	margin-right: 10px;
+	font-family: 'Titillium Web', sans-serif;
+
+}
+
+h1,h2,label
+{
+		font-family: 'Titillium Web', sans-serif;
+}
+
+.inputColor
+{
+	border: solid 1px #009aff;
+}
+
+.font
+{
+	font-size: 15px;
+}
