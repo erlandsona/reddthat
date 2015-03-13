@@ -15,13 +15,13 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-      <nav class="navbar navbar-default navbar-fixed-top" ng-controller="AuthController as auth">
+      <nav class="navbar navbar-default navbar-fixed-top barraNav" ng-controller="AuthController as auth">
         <div class="container">
           <img class="header logo1" src="images/logo.png">
           <form class="navbar-form navbar-right" ng-submit="auth.login()" novalidate>
 	          <div class="form-group">
-		          <ul class="nav nav-pills">
-			          <div class="loggedOut-container" ng-hide="auth.isLoggedIn()">
+		          <div class="loggedOut-container" ng-hide="auth.isLoggedIn()">
+			          <ul class="nav nav-pills">
 			            <li>
 			              <input class="bottones form-control" type="email" placeholder="Email" ng-model="auth.user.email" required>
 			            </li>
@@ -34,10 +34,13 @@
 			            <li>
 			            	<input type="submit" value="Register" class=" bottones active btn btn-success" ng-click="auth.register()">
 									</li>
-			          </div>
-			          <div class="loggedIn-container" ng-show="auth.isLoggedIn()">
-		            	<button class="bottones active btn btn-primary" data-toggle="modal" data-target="#modal-1">New Post</button>
-			          </div>
+			          </ul>
+							</div>
+		          <div class="loggedIn-container" ng-show="auth.isLoggedIn()">
+			          <ul class="nav nav-pills">
+	            		<button class="bottones active btn btn-primary npButton" data-toggle="modal" data-target="#modal-1">New Post</button>
+			          </ul>
+		          </div>
 		          </ul>
 	          </div>
           </form>

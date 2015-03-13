@@ -2,6 +2,11 @@ ul.nav {
   display: inline;
 }
 
+.barraNav
+{
+	box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.4);
+}
+
 h1.header {
   float: left;
 }
@@ -9,7 +14,14 @@ h1.header {
 .bottones
 {
 	margin-right: 10px;
+	margin-top: 15px;
 	font-family: 'Titillium Web', sans-serif;
+}
+
+.npButton:hover
+{
+	color: #0085ff;
+	background: #fff;
 }
 
 h1,h2,label
